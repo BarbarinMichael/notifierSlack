@@ -4,7 +4,7 @@ def call(String buildStatus = 'STARTED') {
   buildStatus = buildStatus ?: 'SUCCESSFUL'
 
   // Default values
-  def summary = "${env.JOB_NAME}: ${env.JOB_NAME}\n${env.BUILD_URL}"
+  def summary = "${env.JOB_NAME}\n${env.BUILD_URL}"
 
   // Override default values based on build status
   if (buildStatus == 'SUCCESSFUL') {
