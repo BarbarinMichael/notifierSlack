@@ -1,17 +1,21 @@
-def call(String buildStatus = 'SUCCESSFUL') {
+def call(String buildStatus = 'STARTED') {
 
   // build status of null means successful
   buildStatus = buildStatus ?: 'SUCCESSFUL'
 
   // Default values
-  def summary = "${buildStatus}: Job '${env.JOB_NAME} ${env.BUILD_URL}"
+  def summary = "${env.JOB_NAME}: ${env.JOB_NAME}\n${env.BUILD_URL}"
 
   // Override default values based on build status
   if (buildStatus == 'SUCCESSFUL') {
-    color = 'GREEN'
+    //color = 'GREEN'
     colorCode = '#0B6623'
+  } else if (buildStatus == 'STARTED') {
+    //color = 'BLUE'
+    colorCode = '#0F52BA'
+    summary = "${buildstatus}: ${env.JOB_NAME}"
   } else {
-    color = 'RED'
+    //color = 'RED'
     colorCode = '#9E1A1A'
   }
 
