@@ -13,7 +13,7 @@ def call(String buildStatus = 'STARTED') {
   } else if (buildStatus == 'STARTED') {
     //color = 'BLUE'
     colorCode = '#0F52BA'
-    summary = "${buildstatus}: ${env.JOB_NAME}"
+    summary = "${buildStatus}: ${env.JOB_NAME}"
   } else {
     //color = 'RED'
     colorCode = '#9E1A1A'
